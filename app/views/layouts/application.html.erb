@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <title>Onlineproduct</title>
+    <%= csrf_meta_tags %>
+
+    <%#= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+<center><% if user_signed_in? %>
+ Signed in as <%= current_user.email %>.<br>
+Not you?<br>
+  <%= link_to "Sign out",
+    destroy_user_session_path, :method => :delete, class: "btn btn-primary" %>
+ <% else %>
+  <%= link_to "Sign up",
+   new_user_registration_path, class: "btn btn-primary btn-sm" %> or <%= link_to "sign in",
+   new_user_session_path, class: "btn btn-primary btn-sm" %></center>
+<% end %>
+    <%= yield %>
+  </body>
+</html>
+
+ <style type="text/css">
+  body{
+    background-color: lightcyan;
+    background-image: url(/assets/19.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    .dropdown-menu li:hover{
+    visibility: visible;
+    }
+    .dropdown:hover .dropdown-menu{
+      display: block;
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+      background-color: #ffba98;
+    }
+</style>

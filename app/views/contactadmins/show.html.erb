@@ -1,0 +1,40 @@
+<br><br><br><br>
+<table border="2px" align="center" width="30%", style="background-color:pink "><td>
+<p>
+  <strong>Name:</strong>
+  <%= @contactadmin.name %>
+</p>
+<p>
+  <strong>Title:</strong>
+  <%= @contactadmin.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @contactadmin.text %>
+</p>
+<%if current_user && current_user.admin %>
+<%= link_to 'Back', contactadmins_path,class:"btn btn-success" %>
+<%end%>
+</td>
+</table>
+
+<style type="text/css">
+  body{
+    background-color: lightcyan;
+    background-image: url(/assets/19.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    .dropdown-menu li:hover{
+    visibility: visible;
+    }
+    .dropdown:hover .dropdown-menu{
+      display: block;
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+      background-color: #ffba98;
+    }
+</style>

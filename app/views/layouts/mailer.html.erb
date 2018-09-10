@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+ <style type="text/css">
+  body{
+    background-color: lightcyan;
+    background-image: url(/assets/19.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    .dropdown-menu li:hover{
+    visibility: visible;
+    }
+    .dropdown:hover .dropdown-menu{
+      display: block;
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+      background-color: #ffba98;
+    }
+</style>

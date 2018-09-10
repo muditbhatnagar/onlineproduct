@@ -1,0 +1,46 @@
+<%= form_with(model: category, local: true) do |form| %>
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+      <% category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :category_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :desc %>
+    <%= form.text_area :desc, id: :category_desc %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<style type="text/css">
+  body{
+    background-color: lightcyan;
+    background-image: url(/assets/19.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    .dropdown-menu li:hover{
+    visibility: visible;
+    }
+    .dropdown:hover .dropdown-menu{
+      display: block;
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+      background-color: #ffba98;
+    }
+</style>

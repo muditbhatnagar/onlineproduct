@@ -1,0 +1,73 @@
+<p id="notice"><%= notice %></p>
+<br><br>
+<p>
+  <strong>Name:</strong>
+  <%= @product.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @product.category_id %>
+</p><br>
+<% if current_user.admin %>
+<%= link_to 'Edit', edit_product_path(@product), class:"btn btn-success" %> |<% end %>
+<center><td><%= link_to 'Order', orders_myorder_path,  class:"btn btn-success"  %></td>
+<%= link_to "Payment" , new_charge_path,  class:"btn btn-success"  %>
+<%= link_to 'Back', products_path, class:"btn btn-success" %>
+
+<table border="2px" align="center" width="20%", style="background-color: pink ">
+  <td>
+<h2>Comments</h2>
+<% @product.reports.each do |report| %>
+  <p>
+    <strong>Name:</strong>
+    <%= report.name %>
+  </p>
+  <p>
+    <strong>Comment:</strong>
+    <%= report.body %>
+  </p>
+<% end %></td>
+</table>
+ <table border="2px" align="center" width="20%", style="background-color: yellow ">
+  <td>
+<h2>Comments on product:</h2>
+<%= form_with(model: [ @product, @product.reports.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+
+ <style type="text/css">
+  body{
+    background-color: lightcyan;
+    background-image: url(/assets/19.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    }
+    .dropdown-menu li:hover{
+    visibility: visible;
+    }
+    .dropdown:hover .dropdown-menu{
+      display: block;
+    }
+    .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+      background-color: #ffba98;
+    }
+</style>
