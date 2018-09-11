@@ -23,7 +23,7 @@
       <tr>
         <td><h3 style="color:black"><%= product.name %></h3></td>
         <td><h3 style="color:black"><%= product.price %></h3></td>
-        <td><%= link_to Category.find(product.category_id).name, category_path(product.category_id), class:"btn btn-primary btn-md" %></td>
+        <td><%= link_to Category.find(product.categories_id).name, category_path(product.categories_id), class:"btn btn-primary btn-md" %></td>
         <td><img src="<%= User.try( :image) %>" style="height: 120px; width: 150px;"></td>
         <td><%= link_to 'Show', product, class:"btn btn-info"%></td>
         <% if current_user.admin? %>

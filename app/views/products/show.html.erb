@@ -12,7 +12,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category_id %>
+  <%= @product.categories_id %>
 </p><br>
 <% if current_user.admin %>
 <%= link_to 'Edit', edit_product_path(@product), class:"btn btn-success" %> |<% end %>
